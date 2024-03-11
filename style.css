@@ -26,6 +26,12 @@ h3 {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   position: relative;
   background-color: #f8bebe;
@@ -233,6 +239,7 @@ body .page .container details .skills .skillset {
 }
 body .page .container details .skills .skillset .skillset_title {
   color: #ffffff;
+  font-size: 18px;
 }
 body .page .container details .skills .skillset .skillset_left {
   flex-basis: 60%;
@@ -274,6 +281,14 @@ body .page .container details .skills .skillset .skillset_right h3 {
 body .page .container details .skills .skillset .skillset_right ul {
   margin: 1rem 0;
 }
+body .page .container details .skills .skillset .skillset_right ul li {
+  display: flex;
+  justify-content: center;
+}
+body .page .container details .skills .skillset .skillset_right ul li img {
+  width: 30px;
+  margin-right: 10px;
+}
 body .page .container details .skills .skillset .skillset_right .tools {
   background-color: #6F4041;
 }
@@ -290,36 +305,41 @@ body .page .container details .work .work_list {
 body .page .container details .work .work_list .work_item {
   width: 31%;
   margin: 0 2% 2% 0;
-  padding: 20px;
   border-radius: 1rem;
   background: rgba(233, 87, 87, 0.25);
   background-size: 100%;
   transition: background-size 0.5s ease-in-out;
   cursor: pointer;
 }
-body .page .container details .work .work_list .work_item .work_top {
+body .page .container details .work .work_list .work_item .work_cover {
+  padding: 20px;
+  background-size: 100%;
+  transition: background-size 0.5s ease-in-out;
+  cursor: pointer;
+}
+body .page .container details .work .work_list .work_item .work_cover .work_top {
   display: flex;
   justify-content: space-between;
 }
-body .page .container details .work .work_list .work_item .work_dec .work_title {
+body .page .container details .work .work_list .work_item .work_cover .work_dec .work_title {
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: #fff;
 }
-body .page .container details .work .work_list .work_item .work_dec .work_desc {
+body .page .container details .work .work_list .work_item .work_cover .work_dec .work_desc {
   font-size: 0.9rem;
   color: rgba(255, 244, 244, 0.7);
   margin-bottom: 20px;
 }
-body .page .container details .work .work_list .work_item .work_btm li {
+body .page .container details .work .work_list .work_item .work_cover .work_btm li {
   position: relative;
   display: inline-block;
   padding-right: 10px;
   margin-right: 10px;
   font-size: 13px;
 }
-body .page .container details .work .work_list .work_item .work_btm li::after {
+body .page .container details .work .work_list .work_item .work_cover .work_btm li::after {
   content: "";
   position: absolute;
   right: 0%;
@@ -328,6 +348,17 @@ body .page .container details .work .work_list .work_item .work_btm li::after {
   width: 1px;
   height: 10px;
   color: #fff;
+}
+body .page .container details .work .work_list .work_item.none:hover a .work_cover .work_dec h3.work_title,
+body .page .container details .work .work_list .work_item.none:hover a .work_cover .work_dec p.work_desc {
+  color: transparent;
+}
+body .page .container details .work .work_list .work_item.none:hover {
+  color: transparent;
+}
+body .page .container details .work .work_list .work_item.none:hover h3,
+body .page .container details .work .work_list .work_item.none:hover p {
+  color: transparent;
 }
 body .page .container details .work .work_list .work_item.soonsal:hover {
   background-image: url(./image/work_soonsal.png);
@@ -359,14 +390,43 @@ body .page .container details .work .work_list .work_item.portfolio:hover {
   background-size: 110%;
   background-position: top center;
 }
-body .page .container details .work .work_list .work_item.none:hover a div,
-body .page .container details .work .work_list .work_item.none:hover a ul {
-  display: none;
-}
 body .page .container details .work .work_list .work_item:hover {
   box-shadow: 0 0 15px #eb6161;
 }
+body .page .container details .work .work_list .work_item .work_one {
+  padding: 20px;
+  background-size: 100%;
+  cursor: pointer;
+}
+body .page .container details .work .work_list .work_item .work_one .work_top {
+  display: flex;
+  justify-content: space-between;
+}
+body .page .container details .work .work_list .work_item .work_one .work_dec .work_title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+body .page .container details .work .work_list .work_item .work_one .work_btm li {
+  position: relative;
+  display: inline-block;
+  padding-right: 10px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+body .page .container details .work .work_list .work_item .work_one .work_btm li::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 10px;
+  color: #fff;
+}
 body .page .container details .contact {
+  font-family: "GangwonEduPowerExtraBoldA";
   text-align: center;
 }
 body .page .container details .contact .contact_title {
