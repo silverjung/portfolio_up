@@ -1,7 +1,5 @@
 @import url(reset.css);
 
-
-
 h1,
 h2 {
     margin: 0;
@@ -28,6 +26,13 @@ h3 {
 @font-face {
     font-family: 'SUIT-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -299,6 +304,7 @@ body {
 
                         .skillset_title {
                             color: #ffffff;
+                            font-size: 18px;
                         }
 
                         .skillset_left {
@@ -351,6 +357,16 @@ body {
 
                             ul {
                                 margin: 1rem 0;
+
+                                li {
+                                    display: flex;
+                                    justify-content: center;
+
+                                    img {
+                                        width: 30px;
+                                        margin-right: 10px;
+                                    }
+                                }
                             }
 
                             .tools {
@@ -375,51 +391,83 @@ body {
                         .work_item {
                             width: 31%;
                             margin: 0 2% 2% 0;
-                            padding: 20px;
                             border-radius: 1rem;
                             background: rgb(233 87 87 / 25%);
                             background-size: 100%;
                             transition: background-size 0.5s ease-in-out;
                             cursor: pointer;
 
-                            .work_top {
-                                display: flex;
-                                justify-content: space-between;
-                            }
+                            .work_cover {
+                                padding: 20px;
+                                background-size: 100%;
+                                transition: background-size 0.5s ease-in-out;
+                                cursor: pointer;
 
-                            .work_dec {
-                                .work_title {
-                                    font-size: 1.3rem;
-                                    font-weight: 600;
-                                    letter-spacing: 0.5px;
-                                    color: #fff;
+                                .work_top {
+                                    display: flex;
+                                    justify-content: space-between;
                                 }
 
-                                .work_desc {
-                                    font-size: .9rem;
-                                    color: rgb(255 244 244 / 70%);
-                                    margin-bottom: 20px;
-                                }
-                            }
-
-                            .work_btm {
-                                li {
-                                    position: relative;
-                                    display: inline-block;
-                                    padding-right: 10px;
-                                    margin-right: 10px;
-                                    font-size: 13px;
-
-                                    &::after {
-                                        content: "";
-                                        position: absolute;
-                                        right: 0%;
-                                        top: 50%;
-                                        transform: translateY(-50%);
-                                        width: 1px;
-                                        height: 10px;
+                                .work_dec {
+                                    .work_title {
+                                        font-size: 1.3rem;
+                                        font-weight: 600;
+                                        letter-spacing: 0.5px;
                                         color: #fff;
                                     }
+
+                                    .work_desc {
+                                        font-size: .9rem;
+                                        color: rgb(255 244 244 / 70%);
+                                        margin-bottom: 20px;
+                                    }
+                                }
+
+                                .work_btm {
+                                    li {
+                                        position: relative;
+                                        display: inline-block;
+                                        padding-right: 10px;
+                                        margin-right: 10px;
+                                        font-size: 13px;
+
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            right: 0%;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 1px;
+                                            height: 10px;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.none {
+                                &:hover {
+                                    a {
+                                        .work_cover {
+                                            .work_dec {
+
+                                                h3.work_title,
+                                                p.work_desc {
+                                                    color: transparent;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+
+                                    h3,
+                                    p {
+                                        color: transparent;
+                                    }
+
+                                    color: transparent;
                                 }
                             }
 
@@ -471,26 +519,57 @@ body {
                                 }
                             }
 
-                            &.none {
-                                &:hover {
-                                    a {
+                            &:hover {
+                                box-shadow: 0 0 15px #eb6161;
+                            }
 
-                                        div,
-                                        ul {
-                                            display: none;
+                            .work_one {
+                                padding: 20px;
+                                background-size: 100%;
+                                cursor: pointer;
+
+                                .work_top {
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+
+                                .work_dec {
+                                    .work_title {
+                                        font-size: 1.3rem;
+                                        font-weight: 600;
+                                        letter-spacing: 0.5px;
+                                        color: #fff;
+                                    }
+                                }
+
+                                .work_btm {
+                                    li {
+                                        position: relative;
+                                        display: inline-block;
+                                        padding-right: 10px;
+                                        margin-right: 10px;
+                                        font-size: 13px;
+
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            right: 0%;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 1px;
+                                            height: 10px;
+                                            color: #fff;
                                         }
                                     }
                                 }
                             }
-
-                            &:hover {
-                                box-shadow: 0 0 15px #eb6161;
-                            }
                         }
+
                     }
                 }
 
                 .contact {
+                    font-family: 'GangwonEduPowerExtraBoldA';
                     text-align: center;
 
                     .contact_title {
