@@ -1,0 +1,781 @@
+@import url(reset.css);
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 15px 0;
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    position: relative;
+    background-color: #f8bebe;
+
+    .header {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 4.375rem;
+        padding: 0 5%;
+
+        .logo {
+            width: 60px;
+        }
+
+        .h_txt {
+            color: #eeeeee;
+            letter-spacing: 1px;
+
+            i {
+                margin-right: 0.625rem;
+            }
+        }
+
+    }
+
+
+    $accordionClass: '.collapse-init';
+    $panelClass: '.panel-active';
+    $contentsClass: 'summary + *';
+
+    #{$accordionClass $contentsClass} {
+        transition: all 0.25s ease-in-out;
+        overflow: hidden; // because we're animating height
+    }
+
+    #{$accordionClass} :not(#{$panelClass}) #{$contentsClass} {
+        height: 0;
+        opacity: 0;
+        transform: scale(0.9);
+        transform-origin: bottom center;
+    }
+
+    #{$accordionClass} {
+        summary {
+            list-style: none;
+        }
+
+        // Spec
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        // Chrome
+        summary::before {
+            display: none;
+        }
+
+        // Polyfill
+        // Should we do this? No idea
+        summary {
+            cursor: pointer;
+        }
+    }
+
+
+    ::selection {
+        $rot: 140;
+    }
+
+    .page {
+        background-image: url(./image/paper-texture-wide.png);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: top;
+
+        #home {
+            padding-top: 18rem;
+            text-align: center;
+
+            h1 {
+                font-family: 'ONE-Mobile-Title';
+                letter-spacing: -.02em;
+                margin-bottom: 11.75rem;
+
+                a {
+                    font-size: 6rem;
+                    color: #fff;
+                }
+            }
+        }
+
+        .container {
+            font-family: 'Pretendard-Regular';
+
+            details {
+                $b: 6px;
+                border-top: 1px solid #303030;
+                list-style: none;
+
+                &:last-child {
+                    border-radius: 0 0 $b $b;
+                }
+
+                summary {
+                    $arrow-size: 0.5em;
+                    display: block;
+                    transition: 0.2s;
+                    font-weight: 700;
+                    font-size: 11.125rem;
+
+                    &:focus {
+                        outline: 2px solid #303030;
+                    }
+
+                    #{$accordionClass} &::after {
+                        border-right: 2px solid;
+                        border-bottom: 2px solid;
+                        content: '';
+                        float: right;
+                        width: $arrow-size;
+                        height: $arrow-size;
+                        transform: rotate(45deg);
+                        transition: inherit;
+                    }
+
+                    [open] & {
+
+                        &::after {
+                            margin-top: $arrow-size;
+                            transform: rotate(225deg);
+                        }
+                    }
+
+                    .word_wrap,
+                    .word_wrap2,
+                    .word_wrap3,
+                    .word_wrap4 {
+                        display: flex;
+                        overflow: hidden;
+                        // max-width: 1920px;
+
+                        .word_container {
+                            display: flex;
+
+                            .words {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+
+                    @keyframes flowRolling {
+                        0% {
+                            transform: translateX(0);
+                        }
+
+                        100% {
+                            transform: translateX(-100%);
+                        }
+                    }
+                }
+
+                &:hover {
+                    color: #f7f7f7;
+                }
+
+                .details-wrapper {
+                    padding: 6rem 0;
+
+                    .details-styling {
+                        position: relative;
+                        width: 90%;
+                        max-width: 1024px;
+                        margin: 0 auto;
+                        height: 100%;
+                        color: #f7f7f7;
+                    }
+                }
+
+                .about {
+                    aside {
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        margin-bottom: 3rem;
+                        font-size: 1.1rem;
+
+                        .about__txt {
+                            margin-right: 3rem;
+
+                            p {
+                                margin-top: 25px;
+                                line-height: 1.7rem;
+                                word-break: keep-all;
+                            }
+                        }
+
+                        .about__img {
+                            width: 50%;
+
+                            img {
+                                border-radius: 1rem;
+                                box-shadow: .5rem .5rem 0 rgba(0, 0, 0, 0.097);
+                            }
+                        }
+                    }
+
+                    .about__pro {
+                        margin-bottom: 3rem;
+
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            li {
+                                color: #574141;
+                                padding: 0.4rem 1.1rem;
+                                margin-right: .9rem;
+                                margin-bottom: 1rem;
+                                border: 1px solid #f7f7f7;
+                                border-radius: 2rem;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+
+                    .about__school {
+                        .job {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 1rem;
+
+                            img {
+                                width: 3.5rem;
+                            }
+
+                            .job__description {
+                                margin: 0 25px;
+                                text-align: left;
+
+                                .job_color {
+                                    color: #574141;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .skills {
+                    text-align: center;
+
+                    .skills_contents {
+                        padding: 15px 0;
+                    }
+
+                    .skillset {
+                        display: flex;
+                        background-color: #9B6868;
+                        color: #eeeeee;
+                        margin: 20px 0;
+
+                        .skillset_title {
+                            color: #ffffff;
+                            font-size: 18px;
+                        }
+
+                        .skillset_left {
+                            flex-basis: 60%;
+                            background-color: #4d3839;
+                            padding: 20px 40px;
+
+                            .skill {
+                                margin-bottom: 35px;
+
+                                h3 {
+                                    font-size: 1.3rem;
+                                }
+
+                                .skill_description {
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+
+                                .skill_bar {
+                                    width: 100%;
+                                    height: 4px;
+                                    background-color: gray;
+
+                                    .skill_value {
+                                        width: 100%;
+                                        height: 4px;
+                                        background-color: #feb546;
+                                    }
+
+                                    .html,
+                                    .css,
+                                    .jquery,
+                                    .java {
+                                        -webkit-transition: width 4s ease !important;
+                                        -moz-transition: width 4s ease !important;
+                                        -o-transition: width 4s ease !important;
+                                        transition: width 4s ease !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .skillset_right {
+                            flex-basis: 40%;
+
+                            h3 {
+                                margin: 8px 0;
+                            }
+
+                            ul {
+                                margin: 1rem 0;
+
+                                li {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    img {
+                                        width: 30px;
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
+
+                            .tools {
+                                background-color: #6F4041;
+                            }
+
+                            .tools,
+                            .etc {
+                                padding: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .work {
+                    .work_list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        margin-bottom: 3rem;
+
+                        .work_item {
+                            width: 31%;
+                            margin: 0 2% 2% 0;
+                            border-radius: 1rem;
+                            background: rgb(233 87 87 / 25%);
+                            background-size: 100%;
+                            transition: background-size 0.5s ease-in-out;
+                            cursor: pointer;
+
+                            .work_cover {
+                                padding: 20px;
+                                background-size: 100%;
+                                transition: background-size 0.5s ease-in-out;
+                                cursor: pointer;
+
+                                .work_top {
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+
+                                .work_dec {
+                                    .work_title {
+                                        font-size: 1.3rem;
+                                        font-weight: 600;
+                                        letter-spacing: 0.5px;
+                                        color: #fff;
+                                    }
+
+                                    .work_desc {
+                                        font-size: .9rem;
+                                        color: rgb(255 244 244 / 70%);
+                                        margin-bottom: 20px;
+                                    }
+                                }
+
+                                .work_btm {
+                                    li {
+                                        position: relative;
+                                        display: inline-block;
+                                        padding-right: 10px;
+                                        margin-right: 10px;
+                                        font-size: 13px;
+
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            right: 0%;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 1px;
+                                            height: 10px;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.none {
+                                &:hover {
+                                    a {
+                                        .work_cover {
+                                            .work_dec {
+
+                                                h3.work_title,
+                                                p.work_desc {
+                                                    color: transparent;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+
+                                    h3,
+                                    p {
+                                        color: transparent;
+                                    }
+
+                                    color: transparent;
+                                }
+                            }
+
+                            &.soonsal {
+                                &:hover {
+                                    background-image: url(./image/work_soonsal.png);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &.coffee {
+                                &:hover {
+                                    background-image: url(./image/work_coffee.png);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &.bion {
+                                &:hover {
+                                    background-image: url(./image/work_bion.png);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &.mega {
+                                &:hover {
+                                    background-image: url(./image/work_mega.png);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &.code {
+                                &:hover {
+                                    background-image: url(./image/work_unicode.PNG);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &.portfolio {
+                                &:hover {
+                                    background-image: url(./image/work_portfolio.png);
+                                    background-size: 110%;
+                                    background-position: top center;
+                                }
+                            }
+
+                            &:hover {
+                                box-shadow: 0 0 15px #eb6161;
+                            }
+
+                            .work_one {
+                                padding: 20px;
+                                background-size: 100%;
+                                cursor: pointer;
+
+                                .work_top {
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+
+                                .work_dec {
+                                    .work_title {
+                                        font-size: 1.3rem;
+                                        font-weight: 600;
+                                        letter-spacing: 0.5px;
+                                        color: #fff;
+                                    }
+                                }
+
+                                .work_btm {
+                                    li {
+                                        position: relative;
+                                        display: inline-block;
+                                        padding-right: 10px;
+                                        margin-right: 10px;
+                                        font-size: 13px;
+
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            right: 0%;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 1px;
+                                            height: 10px;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .contact {
+                    font-family: 'GangwonEduPowerExtraBoldA';
+                    text-align: center;
+
+                    .contact_title {
+                        font-size: 60px;
+                        margin-bottom: 32px;
+                    }
+
+                    .contact_email {
+                        font-size: 40px;
+                        margin: 8px 0;
+                    }
+
+                    .contact_links {
+                        font-size: 48px;
+
+                        .contact_rights {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    body {
+
+        .page {
+            #home {
+                h1 {
+                    a {
+                        font-size: 3rem;
+                    }
+                }
+            }
+
+            .container {
+                details {
+                    summary {
+                        font-size: 2.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    body {
+        .page {
+            .container {
+                details {
+                    .about {
+                        aside {
+                            .about__img {
+                                flex-shrink: 0;
+                                width: 250px;
+
+                                img {
+                                    display: block;
+                                    max-width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.9px) {
+    body {
+        .header {
+            .h_txt {
+                display: none;
+            }
+        }
+
+        .page {
+            #home {
+                padding-top: 15rem;
+
+                h1 {
+                    a {
+                        font-size: 2rem;
+                    }
+                }
+            }
+
+            .container {
+                details {
+                    .about {
+                        aside {
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            margin-bottom: 2.5rem;
+                            font-size: 1rem;
+
+                            .about__txt {
+                                text-align: center;
+                                margin: 0 0 30px 0;
+                            }
+                        }
+
+                        .about__pro {
+                            margin-bottom: 1rem;
+
+                            ul {
+                                li {
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+
+                        .about__school {
+                            .job {
+                                img {
+                                    width: 2.5rem;
+                                }
+
+                                .job__description {
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .skills {
+                        .skillset {
+                            font-size: .7rem;
+
+                            .skillset_left {
+                                padding: 10px 20px;
+                            }
+
+                            .skillset_right {
+                                .tools {
+                                    padding: 10px;
+                                }
+
+                                ul {
+                                    li {
+                                        img {
+                                            width: 20px;
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            .etc {
+                                padding: 10px;
+
+                                .skillset_title {
+                                    font-size: 1.1rem;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .work {
+                        .work_list {
+                            justify-content: flex-start;
+
+                            .work_item {
+                                width: 100%;
+                                margin-right: 0%;
+                                margin-bottom: 5%;
+
+                                .work_dec {
+                                    .work_title {
+                                        font-size: 1.1rem;
+                                    }
+                                }
+
+                                &:hover {
+                                    background: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .contact {
+                        .contact_title {
+                            font-size: 35px;
+                            margin-bottom: 5px;
+                        }
+
+                        .contact_email {
+                            font-size: 23px;
+                        }
+
+                        .contact_links {
+                            font-size: 35px;
+                        }
+
+                        .contact_rights {
+                            font-size: 10px;
+                        }
+                    }
+
+                    .details-wrapper {
+                        padding: 3rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
