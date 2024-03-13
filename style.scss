@@ -24,13 +24,6 @@ h3 {
 }
 
 @font-face {
-    font-family: 'SUIT-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'GangwonEduPowerExtraBoldA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
     font-weight: normal;
@@ -361,6 +354,7 @@ body {
                                 li {
                                     display: flex;
                                     justify-content: center;
+                                    align-items: center;
 
                                     img {
                                         width: 30px;
@@ -654,6 +648,8 @@ body {
 
         .page {
             #home {
+                padding-top: 15rem;
+
                 h1 {
                     a {
                         font-size: 2rem;
@@ -704,12 +700,33 @@ body {
                             font-size: .7rem;
 
                             .skillset_left {
-                                padding: 10px 30px;
+                                padding: 10px 20px;
                             }
 
-                            .skillset_title {
-                                font-size: 1.1rem;
+                            .skillset_right {
+                                .tools {
+                                    padding: 10px;
+                                }
+
+                                ul {
+                                    li {
+                                        img {
+                                            width: 20px;
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+
                             }
+
+                            .etc {
+                                padding: 10px;
+
+                                .skillset_title {
+                                    font-size: 1.1rem;
+                                }
+                            }
+
                         }
                     }
 
@@ -732,6 +749,25 @@ body {
                                     background: none;
                                 }
                             }
+                        }
+                    }
+
+                    .contact {
+                        .contact_title {
+                            font-size: 35px;
+                            margin-bottom: 5px;
+                        }
+
+                        .contact_email {
+                            font-size: 23px;
+                        }
+
+                        .contact_links {
+                            font-size: 35px;
+                        }
+
+                        .contact_rights {
+                            font-size: 10px;
                         }
                     }
 
