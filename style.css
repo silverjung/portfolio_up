@@ -21,12 +21,6 @@ h3 {
   font-style: normal;
 }
 @font-face {
-  font-family: "SUIT-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff") format("woff");
   font-weight: normal;
@@ -284,6 +278,7 @@ body .page .container details .skills .skillset .skillset_right ul {
 body .page .container details .skills .skillset .skillset_right ul li {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 body .page .container details .skills .skillset .skillset_right ul li img {
   width: 30px;
@@ -466,6 +461,9 @@ body .page .container details .contact .contact_links .contact_rights {
   body .header .h_txt {
     display: none;
   }
+  body .page #home {
+    padding-top: 15rem;
+  }
   body .page #home h1 a {
     font-size: 2rem;
   }
@@ -495,9 +493,19 @@ body .page .container details .contact .contact_links .contact_rights {
     font-size: 0.7rem;
   }
   body .page .container details .skills .skillset .skillset_left {
-    padding: 10px 30px;
+    padding: 10px 20px;
   }
-  body .page .container details .skills .skillset .skillset_title {
+  body .page .container details .skills .skillset .skillset_right .tools {
+    padding: 10px;
+  }
+  body .page .container details .skills .skillset .skillset_right ul li img {
+    width: 20px;
+    margin-right: 5px;
+  }
+  body .page .container details .skills .skillset .etc {
+    padding: 10px;
+  }
+  body .page .container details .skills .skillset .etc .skillset_title {
     font-size: 1.1rem;
   }
   body .page .container details .work .work_list {
@@ -513,6 +521,19 @@ body .page .container details .contact .contact_links .contact_rights {
   }
   body .page .container details .work .work_list .work_item:hover {
     background: none;
+  }
+  body .page .container details .contact .contact_title {
+    font-size: 35px;
+    margin-bottom: 5px;
+  }
+  body .page .container details .contact .contact_email {
+    font-size: 23px;
+  }
+  body .page .container details .contact .contact_links {
+    font-size: 35px;
+  }
+  body .page .container details .contact .contact_rights {
+    font-size: 10px;
   }
   body .page .container details .details-wrapper {
     padding: 3rem 0;
